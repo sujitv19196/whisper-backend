@@ -6,7 +6,7 @@ import time
 from flask import Flask, jsonify, request
 from flask_cors import CORS, cross_origin
 
-from whisper.whisperplus import transcribe
+from whisper_models.whisper_timestamped import transcribe
 
 def create_app(test_config=None):
     # create and configure the app
@@ -57,7 +57,7 @@ def create_app(test_config=None):
             # Run whisper
             start_time = time.time()
             print("Running whisper...")
-            transcript = transcribe(target_path, "cpu")
+            transcript = transcribe(target_path)
             whisper_stt_time = time.time() - start_time
 
             print("Whisper STT Time: ", whisper_stt_time)
