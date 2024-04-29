@@ -63,6 +63,7 @@ def create_app(test_config=None):
             print("Whisper STT Time: ", whisper_stt_time)
             print("Total Time: ", time.time() - start_time)
             
+            # TODO add transcript type
             return json.dumps({"transcript": transcript})
         
         except Exception as e:
